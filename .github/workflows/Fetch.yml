@@ -1,0 +1,19 @@
+name: Fetch and Unzip
+on: [workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          pip install gdown
+          gdown --id 1bL4bN8AxtD1LTmr3C6M8d9CMBYKXbQms -O site.zip
+          unzip -o site.zip
+          rm site.zip
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add .
+          git commit -m "Deploy site"
+          git push
