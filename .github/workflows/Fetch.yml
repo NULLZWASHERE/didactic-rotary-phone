@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v4
       - run: |
           pip install gdown
-          gdown --id 1bL4bN8AxtD1LTmr3C6M8d9CMBYKXbQms -O site.zip
+          gdown 1bL4bN8AxtD1LTmr3C6M8d9CMBYKXbQms -O site.zip
           unzip -o site.zip
           rm site.zip
           git config user.name "github-actions"
